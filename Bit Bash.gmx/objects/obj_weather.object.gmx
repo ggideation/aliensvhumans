@@ -25,42 +25,37 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set Random Seed
-randomize();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="7" enumb="75">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///Gamepad Connected - Create Player
-if(async_load != noone)
-{
-    var type = ds_map_find_value(async_load, "event_type");
-    if(type == "gamepad discovered")
-    {
-        var index = ds_map_find_value(async_load, "pad_index");
-        var playerObj = obj_playerOne;
-        if(index == 1) playerObj = obj_playerTwo;
-        if(!instance_exists(playerObj)) instance_create(250 * (index+2), 992, playerObj)
-    }
-}
+            <string>///Initialize Weather and Time Phase
+// Time Phase
+// (0 = Day, 1 = Night)
+timePhase = 0;
+dayNumber = 0;
+
+// Weather State
+// (0 = Clear, 1 = Rain)
+weatherState = 0;
+
+// Particle System
+weather_sys = part_system_create();
+
+// Particle Emitter
+weather_emit = undefined;
+
+// Particle Types
+// Rain Particle Type
+partRain = part_type_create();
+part_type_shape(partRain, pt_shape_line);
+part_type_size(partRain,0.2, 0.3, 0, 0);
+part_type_color2(partRain, c_teal, c_white);
+part_type_alpha2(partRain, 0.5, 0.1);
+part_type_gravity(partRain, 0.1, 290);
+part_type_speed(partRain, 0.5, 0.5, 0, 0);
+part_type_direction(partRain, 250, 330, 0, 1);
+part_type_orientation(partRain, 290, 0, 0, 0, 0);
+part_type_life(partRain, 210, 210);
+
+// Initialize First Day Phase
+ChangeTimePhase(0);
 </string>
           </argument>
         </arguments>

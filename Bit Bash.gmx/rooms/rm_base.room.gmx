@@ -51,7 +51,8 @@
     <view visible="0" objName="&lt;undefined&gt;" xview="0" yview="0" wview="1024" hview="768" xport="0" yport="0" wport="1024" hport="768" hborder="32" vborder="32" hspeed="-1" vspeed="-1"/>
   </views>
   <instances>
-    <instance objName="obj_global" x="404" y="1000" name="inst_CFDA9E64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_global" x="288" y="1056" name="inst_CFDA9E64" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_camera" x="32" y="32" name="inst_E7253FB3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="916" y="680" name="inst_62F4BF2A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="852" y="680" name="inst_17BF5DEA" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="884" y="680" name="inst_A63483F3" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -204,11 +205,16 @@
     <instance objName="obj_ladderwall" x="1236" y="936" name="inst_5E92A031" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ladder" x="628" y="808" name="inst_B1A4330D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ladder" x="1236" y="936" name="inst_28300B4B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_sun" x="1100" y="446" name="inst_63974D0B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_decorative" x="1240" y="648" name="inst_44D20394" locked="0" code="sprite_index = spr_cannonBase;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_decorative" x="920" y="648" name="inst_44D20394" locked="0" code="sprite_index = spr_cannonBase;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_deviceNavigation" x="961" y="888" name="inst_B052E2E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_cannonBarrel" x="1240" y="638" name="inst_0D7B9E32" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
+    <instance objName="obj_cannonBarrel" x="920" y="638" name="inst_0D7B9E32" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
     <instance objName="obj_DeviceActivation" x="770" y="888" name="inst_3BF9B5AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_decorative" x="1280" y="640" name="inst_52840D97" locked="0" code="sprite_index = spr_forcefieldGenerator;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_forcefield" x="1280" y="608" name="inst_E0F0C3BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_droneSpawner" x="448" y="384" name="inst_09ECCE6B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_baseManager" x="896" y="672" name="inst_B9A54ACC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_weather" x="640" y="384" name="inst_9099AEF2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_energyGenerator" x="768" y="1016" name="inst_8CB923C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

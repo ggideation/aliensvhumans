@@ -9,13 +9,19 @@
     <sprites name="Devices">
       <sprite>sprites\spr_deviceActivationActivated</sprite>
       <sprite>sprites\spr_deviceActivationDeactivated</sprite>
+      <sprite>sprites\spr_deviceEnergyActivated</sprite>
+      <sprite>sprites\spr_deviceEnergyDeactivated</sprite>
       <sprite>sprites\spr_deviceNavigationActivated</sprite>
       <sprite>sprites\spr_deviceNavigationDeactivated</sprite>
+      <sprite>sprites\spr_energyGenerator</sprite>
     </sprites>
     <sprites name="Equipment">
       <sprite>sprites\spr_cannonBarrel</sprite>
       <sprite>sprites\spr_cannonBase</sprite>
+      <sprite>sprites\spr_forcefieldGenerator</sprite>
       <sprite>sprites\spr_cannonShot</sprite>
+      <sprite>sprites\spr_forcefieldDeactivated</sprite>
+      <sprite>sprites\spr_forcefieldActivated</sprite>
     </sprites>
     <sprites name="Players">
       <sprite>sprites\spr_playerOne</sprite>
@@ -32,36 +38,83 @@
       <sprite>sprites\spr_moon</sprite>
       <sprite>sprites\spr_sun</sprite>
     </sprites>
+    <sprites name="Enemies">
+      <sprites name="Basic Drones">
+        <sprite>sprites\spr_RapidFireDrone</sprite>
+        <sprite>sprites\spr_RapidFireDroneProjectile</sprite>
+      </sprites>
+    </sprites>
   </sprites>
   <backgrounds name="background">
     <background>background\bg_day</background>
     <background>background\bg_night</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\path_rapidFireDrone</path>
+    <path>paths\path_sun</path>
+    <path>paths\path_moon</path>
+  </paths>
   <scripts name="scripts">
     <scripts name="Equipment">
       <script>scripts\FindEngagedEquipment.gml</script>
+      <script>scripts\FindFirstAvailableEquipment.gml</script>
       <script>scripts\FindNextAvailableEquipment.gml</script>
       <script>scripts\obj_equipment_ToggleEngage.gml</script>
     </scripts>
     <scripts name="Devices">
       <script>scripts\obj_device_ToggleEngage.gml</script>
+      <script>scripts\EnergyGeneratorUpdateEngagedStatus.gml</script>
+      <script>scripts\obj_deviceEnergy_FeedbackAlert.gml</script>
+    </scripts>
+    <scripts name="General">
+      <script>scripts\FindNextArrayIndex.gml</script>
+    </scripts>
+    <scripts name="Weather">
+      <script>scripts\ChangeWeatherState.gml</script>
+      <script>scripts\InstantiateParticleEmitter.gml</script>
+      <script>scripts\ChangeTimePhase.gml</script>
+    </scripts>
+    <scripts name="Enemies">
+      <script>scripts\obj_droneSpawnInfo_SpawnDrone.gml</script>
+      <script>scripts\InstantiateAllDroneSpawnInfo.gml</script>
+      <script>scripts\ActivateAllDroneSpawnInfo.gml</script>
+      <script>scripts\VacateAllDrones.gml</script>
     </scripts>
   </scripts>
   <objects name="objects">
+    <objects name="Base">
+      <object>objects\obj_baseManager</object>
+    </objects>
     <objects name="Devices">
       <object>objects\obj_device</object>
       <object>objects\obj_deviceNavigation</object>
       <object>objects\obj_DeviceActivation</object>
+      <object>objects\obj_energyGenerator</object>
+      <object>objects\obj_deviceEnergy</object>
+      <object>objects\obj_energyGeneratorInstruction</object>
+    </objects>
+    <objects name="Enemies">
+      <objects name="Drone Spawner">
+        <object>objects\obj_droneSpawner</object>
+        <object>objects\obj_droneSpawnInfo</object>
+      </objects>
+      <objects name="Lesser Drones">
+        <object>objects\obj_rapidFireDrone</object>
+        <object>objects\obj_rapidFireDroneProjectile</object>
+      </objects>
+      <object>objects\obj_drone</object>
+      <object>objects\obj_droneProjectile</object>
     </objects>
     <objects name="Equipment">
       <object>objects\obj_equipment</object>
       <object>objects\obj_cannonShot</object>
       <object>objects\obj_cannonBarrel</object>
+      <object>objects\obj_forcefield</object>
     </objects>
-    <objects name="General">
-      <object>objects\obj_global</object>
+    <objects name="Global">
       <object>objects\obj_decorative</object>
+      <object>objects\obj_global</object>
+      <object>objects\obj_camera</object>
     </objects>
     <objects name="Players">
       <object>objects\obj_player</object>
@@ -76,6 +129,7 @@
     <objects name="Weather">
       <object>objects\obj_sun</object>
       <object>objects\obj_moon</object>
+      <object>objects\obj_weather</object>
     </objects>
   </objects>
   <rooms name="rooms">

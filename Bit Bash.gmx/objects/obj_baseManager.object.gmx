@@ -25,14 +25,15 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set Random Seed
-randomize();
+            <string>///Initialize Variables
+hp = 100;
+energy = 0;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="75">
+    <event eventtype="8" enumb="64">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,18 +50,10 @@ randomize();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Gamepad Connected - Create Player
-if(async_load != noone)
-{
-    var type = ds_map_find_value(async_load, "event_type");
-    if(type == "gamepad discovered")
-    {
-        var index = ds_map_find_value(async_load, "pad_index");
-        var playerObj = obj_playerOne;
-        if(index == 1) playerObj = obj_playerTwo;
-        if(!instance_exists(playerObj)) instance_create(250 * (index+2), 992, playerObj)
-    }
-}
+            <string>///Display Base Health and Energy
+draw_set_colour(c_red);
+draw_text(10, 10, hp);
+draw_text(10, 30, energy);
 </string>
           </argument>
         </arguments>

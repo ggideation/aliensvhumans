@@ -12,9 +12,12 @@ if(objDevice != noone)
         objDevice.sprite_index = objDevice.activatedSprite;
         engagedPlayerIndex = playerIndex;
     }
-    // disengage
-    else
+    // disengage (look at this if statement)
+    else if (objDevice.engagedPlayerIndex == playerIndex)
     {
+        if(objDevice.type == "energy")
+        { gamepad_set_vibration(objDevice.engagedPlayerIndex, 0, 0); }
+    
         objDevice.engagedPlayerIndex = -1;
         objDevice.sprite_index = objDevice.deactivatedSprite;
     }
@@ -24,11 +27,14 @@ if(objDevice != noone)
     {
         var equipment = noone;
         if(engagedPlayerIndex >= 0)
-        {equipment = FindNextAvailableEquipment(objDevice.type);}
+        {equipment = FindFirstAvailableEquipment(objDevice.type);}
         else
         {equipment = FindEngagedEquipment(objDevice.type, playerIndex);}
         
         if(equipment != noone)
         {obj_equipment_ToggleEngage(equipment, objDevice.type, engagedPlayerIndex);}
     }
+    // update engaged/disengaged status of energy generator
+    else if (objDevice.type == "energy")
+    { EnergyGeneratorUpdateEngagedStatus(); }
 }

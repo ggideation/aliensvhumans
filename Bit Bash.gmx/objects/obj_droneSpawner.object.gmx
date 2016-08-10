@@ -2,7 +2,7 @@
 <object>
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
-  <visible>-1</visible>
+  <visible>0</visible>
   <depth>0</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
@@ -25,14 +25,45 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set Random Seed
-randomize();
+            <string>///Initialize Variables
+// track whether or not a night phase is pending completion
+// (waiting for all drones to vacate scene)
+nightTimePhasePendingEnd = false;
+
+// Instantiate drone spawn wave resources
+// spawn column information
+droneSpawnColumnMaxIndex = 4;
+droneSpawnColWidth = (obj_camera.viewNightWidth / (droneSpawnColumnMaxIndex + 1));
+spawnYCoord = obj_camera.viewNightY - 100;
+
+// spawn wave count
+droneSpawnWaveMaxIndex = 2;
+currentDroneSpawnWaveIndex = 0;
+
+droneSpawnWaveStartSecondsOffsetArr[0] = 0;
+droneSpawnWaveStartSecondsOffsetArr[1] = 30;
+droneSpawnWaveStartSecondsOffsetArr[2] = 60;
+
+// drone spawn count
+droneSpawnMaxIndex = 2;
+currentDroneSpawnIndex = 0;
+
+// list of spawn information used to spawn ships during coming night
+droneSpawnInfoList = ds_list_create();
+
+
+// Populate pool of enemy ship types
+poolBasicDroneArr[0] = obj_rapidFireDrone;
+poolAdvancedDroneArr = undefined;
+
+// Declare active drone tracking lists
+activeBasicDroneList = ds_list_create();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="75">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,18 +80,9 @@ randomize();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Gamepad Connected - Create Player
-if(async_load != noone)
-{
-    var type = ds_map_find_value(async_load, "event_type");
-    if(type == "gamepad discovered")
-    {
-        var index = ds_map_find_value(async_load, "pad_index");
-        var playerObj = obj_playerOne;
-        if(index == 1) playerObj = obj_playerTwo;
-        if(!instance_exists(playerObj)) instance_create(250 * (index+2), 992, playerObj)
-    }
-}
+            <string>///Check for Night Phase Completion (drone evacuation)
+if(nightTimePhasePendingEnd &amp;&amp; !instance_exists(obj_drone))
+{ ChangeTimePhase(0); }
 </string>
           </argument>
         </arguments>

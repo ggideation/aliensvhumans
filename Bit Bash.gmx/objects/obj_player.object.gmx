@@ -29,7 +29,6 @@
 grav = 0.2;
 hsp = 0;
 vsp = 0;
-jumpspeed = 7;
 movespeed = 4;
 climbspeed = 1;
 descendspeed = 2;
@@ -38,6 +37,8 @@ climbing = false;
 playerIndex = undefined;
 
 engagedDevice = undefined;
+
+gamepadVibrating = false;
 </string>
           </argument>
         </arguments>
@@ -82,7 +83,7 @@ if(is_undefined(engagedDevice))
         }
         else if (climb &gt; 0) // begin descent
         {
-            var belowLadder = instance_place(x,y + sprite_height/2 + 1,obj_ladder);
+            var belowLadder = instance_place(x,y + 1,obj_ladder);
             if(belowLadder != noone)
             {
                 x = belowLadder.x;
@@ -101,15 +102,15 @@ if(is_undefined(engagedDevice))
         if(!place_meeting(x,y,obj_ladder)) climbing = false;
     }
     
+    //Handle vertical movement
+    if(!climbing &amp;&amp; vsp &lt; 10) vsp += grav;
+    
     //Handle horizontal movement
     if(!climbing)
     {
         move = key_walkLeft + key_walkRight;
         hsp = move * movespeed;
     }
-    
-    //Handle vertical movement
-    if(!climbing &amp;&amp; vsp &lt; 10) vsp += grav;
     
     //Horizontal Collision
     if(place_meeting(x + hsp, y, obj_wall))
@@ -172,6 +173,47 @@ if(gamepad_button_check_pressed(playerIndex, gp_face1))
     
         // toggle engagement of device
         obj_device_ToggleEngage(device, playerIndex);
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Equipment Cycling
+if(!is_undefined(engagedDevice))
+{
+    var cycleForward = -1;
+    if(gamepad_button_check_pressed(playerIndex, gp_shoulderr)) cycleForward = true;
+    else if(gamepad_button_check_pressed(playerIndex, gp_shoulderl)) cycleForward = false;
+    
+    if(cycleForward != -1)
+    {
+        var currentEquipment = FindEngagedEquipment(engagedDevice.type, playerIndex);
+        if(currentEquipment != noone)
+        {
+            var nextEquipment = FindNextAvailableEquipment(engagedDevice.type, currentEquipment, cycleForward);
+            if(nextEquipment != noone)
+            {
+                obj_equipment_ToggleEngage(currentEquipment, engagedDevice.type, -1);
+                obj_equipment_ToggleEngage(nextEquipment, engagedDevice.type, playerIndex);
+            }
+        }
     }
 }
 </string>

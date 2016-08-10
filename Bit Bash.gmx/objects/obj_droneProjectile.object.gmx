@@ -25,14 +25,16 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set Random Seed
-randomize();
+            <string>///Instantiate Projectile Properties
+moveSpeed = 0;
+dmg = 0;
+explosionColor = undefined;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="75">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,18 +51,44 @@ randomize();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Gamepad Connected - Create Player
-if(async_load != noone)
+            <string>///Move Projectile and Check for Collision
+y += moveSpeed;
+
+if(instance_place(x, y, obj_wall))
 {
-    var type = ds_map_find_value(async_load, "event_type");
-    if(type == "gamepad discovered")
-    {
-        var index = ds_map_find_value(async_load, "pad_index");
-        var playerObj = obj_playerOne;
-        if(index == 1) playerObj = obj_playerTwo;
-        if(!instance_exists(playerObj)) instance_create(250 * (index+2), 992, playerObj)
-    }
+    obj_baseManager.hp -= dmg;
+    effect_create_above(ef_explosion, x, y, 0, explosionColor);
+    instance_destroy();
 }
+if(instance_place(x, y, obj_forcefield) &amp;&amp; obj_forcefield.activated)
+{
+    effect_create_above(ef_explosion, x, y, 0, explosionColor);
+    instance_destroy();
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="40">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Destroy Self
+instance_destroy();
 </string>
           </argument>
         </arguments>

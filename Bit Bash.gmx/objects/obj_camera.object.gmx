@@ -25,14 +25,29 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Set Random Seed
-randomize();
+            <string>///Initialize Variables
+zooming = false; // whether zooming is actively occurring
+zoomingOut = true; // depicts whether active zoom is moving in/out
+zoomFactor = 1.0; // scale by which view width and height is multiplied
+zoomFactorMax = 1.5; // maximum scale value which may be applied to view width and height
+
+// Daytime view coordinates &amp; dimensions
+viewDefaultX = view_xview[0];
+viewDefaultY = view_yview[0];
+viewDefaultWidth = view_wview[0];
+viewDefaultHeight = view_hview[0];
+
+// Nighttime view coordinates &amp; dimensions
+viewNightWidth = viewDefaultWidth * zoomFactorMax;
+viewNightHeight = viewDefaultHeight * zoomFactorMax;
+viewNightX = viewDefaultX - ((viewNightWidth - viewDefaultWidth) / 2);
+viewNightY = viewDefaultY - (viewNightHeight - viewDefaultHeight);
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="75">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,17 +64,25 @@ randomize();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Gamepad Connected - Create Player
-if(async_load != noone)
+            <string>///Handle Zooming
+if(zooming)
 {
-    var type = ds_map_find_value(async_load, "event_type");
-    if(type == "gamepad discovered")
+    if(zoomingOut)
     {
-        var index = ds_map_find_value(async_load, "pad_index");
-        var playerObj = obj_playerOne;
-        if(index == 1) playerObj = obj_playerTwo;
-        if(!instance_exists(playerObj)) instance_create(250 * (index+2), 992, playerObj)
+        if(zoomFactor &lt; zoomFactorMax) { zoomFactor += 0.001; }
+        else { zooming = false; }
     }
+    else
+    {
+        if(zoomFactor &gt; 1.0) { zoomFactor -= 0.001; }
+        else { zooming = false; }
+    }
+    
+    view_wview[0] = viewDefaultWidth * zoomFactor;
+    view_hview[0] = viewDefaultHeight * zoomFactor;
+    
+    view_xview[0] = viewDefaultX - ((view_wview[0] - viewDefaultWidth) / 2);
+    view_yview[0] = viewDefaultY - (view_hview[0] - viewDefaultHeight);
 }
 </string>
           </argument>
