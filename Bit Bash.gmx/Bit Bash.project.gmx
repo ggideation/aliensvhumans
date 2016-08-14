@@ -55,6 +55,10 @@
     <path>paths\path_moon</path>
   </paths>
   <scripts name="scripts">
+    <scripts name="Base">
+      <script>scripts\AdjustBaseEnergy.gml</script>
+      <script>scripts\AdjustBaseHP.gml</script>
+    </scripts>
     <scripts name="Equipment">
       <script>scripts\FindEngagedEquipment.gml</script>
       <script>scripts\FindFirstAvailableEquipment.gml</script>

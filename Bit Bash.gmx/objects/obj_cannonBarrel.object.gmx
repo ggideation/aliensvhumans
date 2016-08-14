@@ -23,6 +23,28 @@
         <relative>0</relative>
         <isnot>0</isnot>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initialize Variables
+energyCost = 2;
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="3" enumb="0">
       <action>
@@ -54,8 +76,11 @@ if(engagedNavigationPlayerIndex &gt;= 0)
 if(engagedActivationPlayerIndex &gt;= 0)
 {
     // fire cannon
-    if(gamepad_button_check_pressed(engagedActivationPlayerIndex, gp_face3))
+    if(obj_baseManager.energy &gt;= energyCost
+        &amp;&amp; gamepad_button_check_pressed(engagedActivationPlayerIndex, gp_face3))
     {
+        AdjustBaseEnergy(-energyCost);
+        
         var proj = instance_create(x + lengthdir_x(sprite_width, image_angle),
             y + lengthdir_y(sprite_width, image_angle), obj_cannonShot);
         proj.direction = image_angle;

@@ -46,6 +46,48 @@ xCoordMin = view_xview[0] + (sprite_width / 2);
 xCoordMax = view_xview[0] + view_wview[0] - (sprite_width / 2);
 
 hsp = 4;
+
+// energy cost value and alarm
+energyCost = 1;
+energyCostTimeLimit = room_speed;
+alarm[0] = -1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Decrement Energy
+AdjustBaseEnergy(-energyCost);
+
+// if necessary, deactivate forcefield and halt energy cost timer
+if(obj_baseManager.energy &lt; energyCost)
+{
+    activated = false;
+    sprite_index = spr_forcefieldDeactivated;
+    alarm[0] = -1;
+}
+// otherwise, reset energy cost timer
+else
+{
+    alarm[0] = energyCostTimeLimit;
+}
 </string>
           </argument>
         </arguments>
@@ -83,9 +125,28 @@ if(engagedActivationPlayerIndex &gt;= 0)
     // activate/deactivate forcefield
     if(gamepad_button_check_pressed(engagedActivationPlayerIndex, gp_face3))
     {
-        activated = !activated;
-        if(activated) sprite_index = spr_forcefieldActivated;
-        else sprite_index = spr_forcefieldDeactivated;
+        var allowActivationToggle = true;    
+    
+        // attempting activation
+        if(!activated)
+        {
+            // if insufficient energy exists in pool, disallow activation
+            if(obj_baseManager.energy &lt; energyCost)
+            { allowActivationToggle = false; }
+        }
+    
+        if(allowActivationToggle)
+        {
+            // reset or cancel energy cost timer
+            if(!activated)
+            { alarm[0] = energyCostTimeLimit; }
+            else
+            { alarm[0] = -1; }
+            
+            activated = !activated;
+            if(activated) sprite_index = spr_forcefieldActivated;
+            else sprite_index = spr_forcefieldDeactivated;
+        }
     }
 }
 </string>

@@ -26,8 +26,42 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize Variables
+hpMin = 0;
+hpMax = 200;
 hp = 100;
+
+hpRecoveryValue = 1;
+hpRecoveryTimeLimit = (room_speed * 3);
+alarm[0] = hpRecoveryTimeLimit;
+
+energyMin = 0;
+energyMax = 100;
 energy = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Recover HP and Reset Recovery Timer
+AdjustBaseHP(hpRecoveryValue);
+alarm[0] = hpRecoveryTimeLimit;
 </string>
           </argument>
         </arguments>
@@ -52,8 +86,8 @@ energy = 0;
             <kind>1</kind>
             <string>///Display Base Health and Energy
 draw_set_colour(c_red);
-draw_text(10, 10, hp);
-draw_text(10, 30, energy);
+draw_text(10, 10, "HP: " + string(hp));
+draw_text(10, 30, "E: " + string(energy));
 </string>
           </argument>
         </arguments>

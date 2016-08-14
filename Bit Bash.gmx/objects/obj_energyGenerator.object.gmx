@@ -145,7 +145,7 @@ if(engaged &amp;&amp; !instructionalMode &amp;&amp; !ds_queue_empty(instructionQ
                 // if input player index and button matches target, increase energy
                 if(playerIndexArr[i] == targetCommandInfo.targetPlayerIndex
                     &amp;&amp; commandButtonArr[j] == targetCommandInfo.targetButton)
-                { obj_baseManager.energy += 10; }
+                { AdjustBaseEnergy(10); }
                 
                 // destroy target command info object
                 with(targetCommandInfo) { instance_destroy(); }

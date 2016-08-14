@@ -51,7 +51,7 @@ explosionColor = c_lime;
 descentthreshold = obj_camera.viewNightY + 100;
 
 //Projectile firing alarm
-alarm[0] = (room_speed * 3);
+alarm[0] = (room_speed * 5);
 </string>
           </argument>
         </arguments>
