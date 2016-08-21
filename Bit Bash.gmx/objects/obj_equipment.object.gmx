@@ -28,6 +28,7 @@
             <string>///Initialize Variables
 engagedNavigationPlayerIndex = -1;
 engagedActivationPlayerIndex = -1;
+type = -1;
 </string>
           </argument>
         </arguments>

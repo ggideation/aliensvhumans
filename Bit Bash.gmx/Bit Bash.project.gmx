@@ -18,10 +18,14 @@
     <sprites name="Equipment">
       <sprite>sprites\spr_cannonBarrel</sprite>
       <sprite>sprites\spr_cannonBase</sprite>
-      <sprite>sprites\spr_forcefieldGenerator</sprite>
       <sprite>sprites\spr_cannonShot</sprite>
-      <sprite>sprites\spr_forcefieldDeactivated</sprite>
       <sprite>sprites\spr_forcefieldActivated</sprite>
+      <sprite>sprites\spr_forcefieldDeactivated</sprite>
+      <sprite>sprites\spr_forcefieldGenerator</sprite>
+      <sprite>sprites\spr_magneticDish</sprite>
+      <sprite>sprites\spr_magneticTarget</sprite>
+      <sprite>sprites\spr_magneticOrb</sprite>
+      <sprite>sprites\spr_magneticField</sprite>
     </sprites>
     <sprites name="Players">
       <sprite>sprites\spr_playerOne</sprite>
@@ -114,6 +118,10 @@
       <object>objects\obj_cannonShot</object>
       <object>objects\obj_cannonBarrel</object>
       <object>objects\obj_forcefield</object>
+      <object>objects\obj_beacon</object>
+      <object>objects\obj_magneticTarget</object>
+      <object>objects\obj_magneticOrb</object>
+      <object>objects\obj_magneticField</object>
     </objects>
     <objects name="Global">
       <object>objects\obj_decorative</object>

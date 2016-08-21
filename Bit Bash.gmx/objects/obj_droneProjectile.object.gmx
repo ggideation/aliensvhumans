@@ -26,9 +26,16 @@
           <argument>
             <kind>1</kind>
             <string>///Instantiate Projectile Properties
-moveSpeed = 0;
+vx = 0;
+vy = 0;
+movementSpeedMax = 1;
+
 dmg = 0;
 explosionColor = undefined;
+
+magnetizationMaxDistance = 500; // maximum field range
+magnetizationForce = 0.01; // field pull force
+magnetizationEnergy = 0; // energy added to field upon collision
 </string>
           </argument>
         </arguments>
@@ -51,18 +58,68 @@ explosionColor = undefined;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Move Projectile and Check for Collision
-y += moveSpeed;
+            <string>///Handle Movement
+// if near enough, projectile will be pulled by magnetic field
+if(instance_exists(obj_magneticField))
+{
+    var magDistance = point_distance(obj_magneticField.x, obj_magneticField.y, x, y);
+    if(magDistance &lt;= magnetizationMaxDistance)
+    {
+        // find x and y displacement from projectile to magnetic field
+        var magDisplacementX = obj_magneticField.x - x;
+        var magDisplacementY = obj_magneticField.y - y;
+        
+        // adjust projectile speed according to magnetic force vectors
+        var magneticPull = (1 - (magDistance / magnetizationMaxDistance)) * magnetizationForce;
+        vx += ((magDisplacementX / magDistance) * magneticPull);
+        vy += ((magDisplacementY / magDistance) * magneticPull);
+    }
+}
 
+// if necessary, clamp speed
+var currentSpeed = sqrt(sqr(vx) + sqr(vy));
+if(currentSpeed &gt; movementSpeedMax)
+{
+    // normalize speed vector and multiply by maximum permitted speed
+    vx = ((vx/currentSpeed) * movementSpeedMax);
+    vy = ((vy/currentSpeed) * movementSpeedMax);
+}
+
+// move projectile
+x += vx;
+y += vy;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Handle Collision
+// base collision
 if(instance_place(x, y, obj_wall))
 {
     obj_baseManager.hp -= dmg;
-    effect_create_above(ef_explosion, x, y, 0, explosionColor);
+    effect_create_above(ef_flare, x, y, 0, explosionColor);
     instance_destroy();
 }
+// forcefield collision
 if(instance_place(x, y, obj_forcefield) &amp;&amp; obj_forcefield.activated)
 {
-    effect_create_above(ef_explosion, x, y, 0, explosionColor);
+    effect_create_above(ef_flare, x, y, 0, explosionColor);
     instance_destroy();
 }
 </string>

@@ -215,6 +215,7 @@
     <instance objName="obj_baseManager" x="896" y="672" name="inst_B9A54ACC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_weather" x="640" y="384" name="inst_9099AEF2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_energyGenerator" x="768" y="1016" name="inst_8CB923C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_beacon" x="581" y="636" name="inst_47A7E62A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

@@ -4,6 +4,7 @@ var controlType = argument0;
 var equipmentArr;
 equipmentArr[0] = obj_cannonBarrel;
 equipmentArr[1] = obj_forcefield;
+equipmentArr[2] = obj_beacon;
 
 if(controlType == "navigation")
 {

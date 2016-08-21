@@ -40,9 +40,14 @@
           <argument>
             <kind>1</kind>
             <string>///Initialize Projectile Properties
-moveSpeed = 1;
+vx = 0;
+vy = 1;
+movementSpeedMax = 2;
+
 dmg = 0.25;
 explosionColor = c_lime;
+
+magnetizationEnergy = 10;
 </string>
           </argument>
         </arguments>
@@ -62,26 +67,6 @@ explosionColor = c_lime;
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string></string>
-          </argument>
-        </arguments>
       </action>
     </event>
   </events>

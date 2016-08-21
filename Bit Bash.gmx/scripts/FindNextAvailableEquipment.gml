@@ -6,6 +6,7 @@ var cycleForward = argument2;
 var equipmentArr;
 equipmentArr[0] = obj_cannonBarrel;
 equipmentArr[1] = obj_forcefield;
+equipmentArr[2] = obj_beacon;
 var equipmentArrLength = array_length_1d(equipmentArr);
 
 // find index of current equipment

@@ -41,6 +41,7 @@
             <kind>1</kind>
             <string>///Initialize Variables
 energyCost = 2;
+type = equipmentTypes.cannon;
 </string>
           </argument>
         </arguments>
