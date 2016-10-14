@@ -206,9 +206,9 @@
     <instance objName="obj_ladder" x="628" y="808" name="inst_B1A4330D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_ladder" x="1236" y="936" name="inst_28300B4B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_decorative" x="920" y="648" name="inst_44D20394" locked="0" code="sprite_index = spr_cannonBase;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_deviceNavigation" x="1344" y="896" name="inst_B052E2E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_deviceNavigation" x="961" y="888" name="inst_B052E2E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_cannonBarrel" x="920" y="638" name="inst_0D7B9E32" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="90"/>
-    <instance objName="obj_DeviceActivation" x="576" y="896" name="inst_3BF9B5AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_DeviceActivation" x="770" y="888" name="inst_3BF9B5AE" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_decorative" x="1280" y="640" name="inst_52840D97" locked="0" code="sprite_index = spr_forcefieldGenerator;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_forcefield" x="1280" y="608" name="inst_E0F0C3BF" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_droneSpawner" x="448" y="384" name="inst_09ECCE6B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -216,16 +216,6 @@
     <instance objName="obj_weather" x="640" y="384" name="inst_9099AEF2" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_energyGenerator" x="768" y="1016" name="inst_8CB923C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_beacon" x="581" y="636" name="inst_47A7E62A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pipePanel" x="688" y="881" name="inst_943AEBDD" locked="0" code="roomId = 3;&#xA;&#xA;roomNeighborIdArr[0] = 0;&#xA;roomNeighborIdArr[1] = 4;&#xA;roomNeighborIdArr[2] = 6;&#xA;roomNeighborIdArr[3] = -1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pipePanel" x="929" y="880" name="inst_72B0CE16" locked="0" code="roomId = 4;&#xA;&#xA;roomNeighborIdArr[0] = 1;&#xA;roomNeighborIdArr[1] = 5;&#xA;roomNeighborIdArr[2] = -2;&#xA;roomNeighborIdArr[3] = 3;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pipePanel" x="1276" y="880" name="inst_211A54E8" locked="0" code="roomId = 5;&#xA;&#xA;roomNeighborIdArr[0] = 2;&#xA;roomNeighborIdArr[1] = -1;&#xA;roomNeighborIdArr[2] = 7;&#xA;roomNeighborIdArr[3] = 4;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pipePanel" x="688" y="1008" name="inst_D2A0ED3A" locked="0" code="roomId = 6;&#xA;&#xA;roomNeighborIdArr[0] = 3;&#xA;roomNeighborIdArr[1] = -2;&#xA;roomNeighborIdArr[2] = -1;&#xA;roomNeighborIdArr[3] = -1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pipePanel" x="1277" y="1008" name="inst_B2D540D6" locked="0" code="roomId = 7;&#xA;&#xA;roomNeighborIdArr[0] = 5;&#xA;roomNeighborIdArr[1] = -1;&#xA;roomNeighborIdArr[2] = -1;&#xA;roomNeighborIdArr[3] = -2;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pipePanel" x="928" y="752" name="inst_EF4A3A55" locked="0" code="roomId = 1;&#xA;&#xA;roomNeighborIdArr[0] = -1;&#xA;roomNeighborIdArr[1] = 2;&#xA;roomNeighborIdArr[2] = 4;&#xA;roomNeighborIdArr[3] = 0;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pipePanel" x="689" y="753" name="inst_D4C39F10" locked="0" code="roomId = 0;&#xA;&#xA;roomNeighborIdArr[0] = -1;&#xA;roomNeighborIdArr[1] = 1;&#xA;roomNeighborIdArr[2] = 3;&#xA;roomNeighborIdArr[3] = -1;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pipePanel" x="1274" y="753" name="inst_16FEA392" locked="0" code="roomId = 2;&#xA;&#xA;roomNeighborIdArr[0] = -1;&#xA;roomNeighborIdArr[1] = -1;&#xA;roomNeighborIdArr[2] = 5;&#xA;roomNeighborIdArr[3] = 1;&#xA;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pipePanel" x="928" y="1008" name="inst_59AFDC6C" locked="0" code="roomId = -2;&#xA;&#xA;roomNeighborIdArr[0] = 4;&#xA;roomNeighborIdArr[1] = 7;&#xA;roomNeighborIdArr[2] = -1;&#xA;roomNeighborIdArr[3] = 6;" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_pipeManager" x="960" y="672" name="inst_0C1EC6D4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>

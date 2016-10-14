@@ -37,6 +37,7 @@ climbing = false;
 playerIndex = undefined;
 
 engagedDevice = undefined;
+engagedPipePanel = undefined;
 
 gamepadVibrating = false;
 </string>
@@ -62,7 +63,7 @@ gamepadVibrating = false;
           <argument>
             <kind>1</kind>
             <string>///Movement &amp; Collision Handling
-if(is_undefined(engagedDevice))
+if(is_undefined(engagedDevice) &amp;&amp; is_undefined(engagedPipePanel))
 {
     //Check for player input
     key_walkLeft = -(gamepad_axis_value(playerIndex, gp_axislh) &lt; 0);
@@ -173,6 +174,23 @@ if(gamepad_button_check_pressed(playerIndex, gp_face1))
     
         // toggle engagement of device
         obj_device_ToggleEngage(device, playerIndex);
+    }
+    // check for contact with pipe panel
+    else
+    {
+        var pipePanel = instance_place(x, y, obj_pipePanel);
+        if(pipePanel != noone &amp;&amp; (pipePanel.engagedPlayerIndex &lt; 0 || pipePanel.engagedPlayerIndex == playerIndex))
+        {
+            // engage pipe panel
+            if(is_undefined(engagedPipePanel))
+            {engagedPipePanel = pipePanel;}
+            // disengage pipe panel
+            else
+            {engagedPipePanel = undefined;}
+            
+            // toggle engagement of pipe panel
+            obj_pipePanel_ToggleEngage(pipePanel, playerIndex);
+        }
     }
 }
 </string>

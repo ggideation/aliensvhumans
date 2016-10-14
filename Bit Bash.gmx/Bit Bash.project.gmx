@@ -27,6 +27,23 @@
       <sprite>sprites\spr_magneticOrb</sprite>
       <sprite>sprites\spr_magneticField</sprite>
     </sprites>
+    <sprites name="Pipes">
+      <sprite>sprites\spr_pipePanel</sprite>
+      <sprite>sprites\spr_pipeUD</sprite>
+      <sprite>sprites\spr_pipeLR</sprite>
+      <sprite>sprites\spr_pipeUR</sprite>
+      <sprite>sprites\spr_pipeRD</sprite>
+      <sprite>sprites\spr_pipeDL</sprite>
+      <sprite>sprites\spr_pipeLU</sprite>
+      <sprite>sprites\spr_pipeLUR</sprite>
+      <sprite>sprites\spr_pipeURD</sprite>
+      <sprite>sprites\spr_pipeRDL</sprite>
+      <sprite>sprites\spr_pipeDLU</sprite>
+      <sprite>sprites\spr_pipePowerFlowU</sprite>
+      <sprite>sprites\spr_pipePowerFlowR</sprite>
+      <sprite>sprites\spr_pipePowerFlowD</sprite>
+      <sprite>sprites\spr_pipePowerFlowL</sprite>
+    </sprites>
     <sprites name="Players">
       <sprite>sprites\spr_playerOne</sprite>
       <sprite>sprites\spr_playerTwo</sprite>
@@ -63,6 +80,12 @@
       <script>scripts\AdjustBaseEnergy.gml</script>
       <script>scripts\AdjustBaseHP.gml</script>
     </scripts>
+    <scripts name="Enemies">
+      <script>scripts\obj_droneSpawnInfo_SpawnDrone.gml</script>
+      <script>scripts\InstantiateAllDroneSpawnInfo.gml</script>
+      <script>scripts\ActivateAllDroneSpawnInfo.gml</script>
+      <script>scripts\VacateAllDrones.gml</script>
+    </scripts>
     <scripts name="Equipment">
       <script>scripts\FindEngagedEquipment.gml</script>
       <script>scripts\FindFirstAvailableEquipment.gml</script>
@@ -77,21 +100,23 @@
     <scripts name="General">
       <script>scripts\FindNextArrayIndex.gml</script>
     </scripts>
+    <scripts name="Pipes">
+      <script>scripts\obj_Pipe_Place.gml</script>
+      <script>scripts\obj_pipePanel_ToggleEngage.gml</script>
+      <script>scripts\obj_Pipe_SetPowerFlowDirection.gml</script>
+      <script>scripts\obj_Pipe_SetType.gml</script>
+      <script>scripts\obj_Pipe_Initialize.gml</script>
+    </scripts>
     <scripts name="Weather">
       <script>scripts\ChangeWeatherState.gml</script>
       <script>scripts\InstantiateParticleEmitter.gml</script>
       <script>scripts\ChangeTimePhase.gml</script>
     </scripts>
-    <scripts name="Enemies">
-      <script>scripts\obj_droneSpawnInfo_SpawnDrone.gml</script>
-      <script>scripts\InstantiateAllDroneSpawnInfo.gml</script>
-      <script>scripts\ActivateAllDroneSpawnInfo.gml</script>
-      <script>scripts\VacateAllDrones.gml</script>
-    </scripts>
   </scripts>
   <objects name="objects">
     <objects name="Base">
       <object>objects\obj_baseManager</object>
+      <object>objects\obj_pipeManager</object>
     </objects>
     <objects name="Devices">
       <object>objects\obj_device</object>
@@ -128,6 +153,10 @@
       <object>objects\obj_global</object>
       <object>objects\obj_camera</object>
     </objects>
+    <objects name="Pipes">
+      <object>objects\obj_pipePanel</object>
+      <object>objects\obj_pipe</object>
+    </objects>
     <objects name="Players">
       <object>objects\obj_player</object>
       <object>objects\obj_playerOne</object>
@@ -146,6 +175,7 @@
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_base</room>
+    <room>rooms\rm_base2</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
